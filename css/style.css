@@ -1,0 +1,254 @@
+/* ── Base ── */
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { font-family: 'Inter', sans-serif; color: #14141F; }
+
+/* ── Animations ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+.anim-fade-up  { animation: fadeUp  0.65s ease both; }
+.anim-fade-in  { animation: fadeIn  0.65s ease both; }
+.delay-1 { animation-delay: 0.10s; }
+.delay-2 { animation-delay: 0.22s; }
+.delay-3 { animation-delay: 0.34s; }
+.delay-4 { animation-delay: 0.46s; }
+.delay-5 { animation-delay: 0.58s; }
+
+/* ── Scroll reveal ── */
+.reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.6s ease, transform 0.6s ease; }
+.reveal.visible { opacity: 1; transform: none; }
+
+/* ── Navbar ── */
+.nav-link {
+  font-size: 14px;
+  font-weight: 500;
+  color: #14141F;
+  padding: 8px 18px;
+  border-radius: 6px;
+  transition: background 0.2s, color 0.2s;
+  white-space: nowrap;
+}
+.nav-link:hover { background: #F7F5FF; color: #6E5FDD; }
+.nav-link.active { color: #6E5FDD; }
+
+/* Dropdown */
+.dropdown { position: relative; }
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  background: #fff;
+  border: 1px solid #E0DDF8;
+  border-radius: 10px;
+  min-width: 200px;
+  box-shadow: 0 8px 28px rgba(110,95,221,.13);
+  padding: 6px 0;
+  z-index: 100;
+}
+.dropdown:hover .dropdown-menu,
+.dropdown:focus-within .dropdown-menu { display: block; }
+.dropdown-menu a {
+  display: block;
+  padding: 9px 20px;
+  font-size: 14px;
+  color: #14141F;
+  transition: background 0.15s;
+}
+.dropdown-menu a:hover { background: #F7F5FF; color: #6E5FDD; }
+.chevron-icon { font-size: 16px; vertical-align: -3px; transition: transform 0.2s; }
+.dropdown:hover .chevron-icon { transform: rotate(180deg); }
+
+/* ── CTA decorative circles ── */
+.cta-circle {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.05);
+  pointer-events: none;
+}
+
+/* ── Footer ── */
+.footer-link {
+  font-size: 13px;
+  color: #A6A1C7;
+  transition: color 0.2s;
+}
+.footer-link:hover { color: #E0DDF8; }
+
+/* ── Hamburger (mobile) ── */
+.hamburger { display: none; }
+@media (max-width: 900px) {
+  .desktop-nav { display: none !important; }
+  .hamburger { display: flex; }
+  .mobile-menu {
+    display: none;
+    flex-direction: column;
+    gap: 4px;
+    padding: 12px 20px 16px;
+    background: #fff;
+    border-top: 1px solid #E0DDF8;
+  }
+  .mobile-menu.open { display: flex; }
+  .mobile-nav-link {
+    padding: 10px 12px;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 500;
+    color: #14141F;
+    display: block;
+  }
+  .mobile-nav-link:hover { background: #F7F5FF; color: #6E5FDD; }
+}
+
+/* ── index.html: Hero image placeholder ── */
+.hero-image-placeholder {
+  background: linear-gradient(135deg, #E0DDF8 0%, #c4bef5 50%, #a89cec 100%);
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  color: #6E5FDD;
+  font-weight: 500;
+}
+
+/* ── index.html: Service cards ── */
+.service-card {
+  background: #F9F8FF;
+  border-radius: 16px;
+  padding: 28px;
+  transition: box-shadow 0.25s, transform 0.25s;
+}
+.service-card:hover {
+  box-shadow: 0 12px 36px rgba(110,95,221,.13);
+  transform: translateY(-4px);
+}
+
+/* ── index.html: Icon circle ── */
+.icon-circle {
+  width: 52px; height: 52px;
+  background: #E0DDF8;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 20px;
+  color: #6E5FDD;
+}
+.icon-circle .material-symbols-outlined { font-size: 22px; }
+
+/* ── index.html: Why Choose Us ── */
+.reason-icon-circle {
+  width: 44px; height: 44px; min-width: 44px;
+  background: #E0DDF8;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  color: #6E5FDD;
+}
+.reason-icon-circle .material-symbols-outlined { font-size: 20px; }
+
+/* ── about.html: Timeline ── */
+.timeline-line {
+  position: absolute;
+  left: 19px;
+  top: 28px;
+  bottom: 0;
+  width: 2px;
+  background: #E0DDF8;
+}
+.timeline-dot {
+  width: 40px; height: 40px; min-width: 40px;
+  background: #6E5FDD;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  color: white;
+  font-size: 13px;
+  font-weight: 700;
+  position: relative;
+  z-index: 1;
+}
+
+/* ── about.html: Stat card ── */
+.stat-card {
+  background: #F9F8FF;
+  border-radius: 16px;
+  border: 1px solid #E0DDF8;
+  padding: 28px 24px;
+  text-align: center;
+  transition: box-shadow 0.25s, transform 0.25s;
+}
+.stat-card:hover {
+  box-shadow: 0 12px 36px rgba(110,95,221,.12);
+  transform: translateY(-4px);
+}
+
+/* ── services_1.html & services_2.html: Icon box ── */
+.icon-box {
+  width: 52px; height: 52px; background: #E0DDF8; border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  color: #6E5FDD; margin-bottom: 20px;
+}
+.icon-box .material-symbols-outlined { font-size: 22px; }
+
+/* ── services_1.html & services_2.html: Step numbers ── */
+.step-number {
+  font-size: 28px; font-weight: 700;
+  color: rgba(110,95,221,0.35); line-height: 1; margin-bottom: 8px;
+}
+
+/* ── services_2.html: Program cards ── */
+.program-card {
+  background: #F9F8FF; border-radius: 12px; padding: 28px;
+  transition: box-shadow 0.25s, transform 0.25s;
+}
+.program-card:hover {
+  box-shadow: 0 12px 36px rgba(110,95,221,.13);
+  transform: translateY(-4px);
+}
+
+/* ── contact.html: Info cards ── */
+.info-card {
+  background: #F9F8FF; border-radius: 12px; padding: 28px 28px 28px 32px;
+  position: relative; overflow: hidden;
+  transition: box-shadow 0.25s, transform 0.25s;
+}
+.info-card:hover { box-shadow: 0 12px 36px rgba(110,95,221,.12); transform: translateY(-3px); }
+.info-card::before {
+  content: ''; position: absolute; left: 0; top: 40px;
+  width: 4px; height: 60px; background: #6E5FDD; border-radius: 2px;
+}
+
+/* ── contact.html: Form ── */
+.form-wrap { background: #F9F8FF; border-radius: 16px; padding: 40px; }
+.form-label { font-size: 13px; font-weight: 600; color: #14141F; display: block; margin-bottom: 8px; }
+.form-input {
+  width: 100%; background: #fff; border: 1px solid #E0DDF8;
+  border-radius: 8px; padding: 12px 14px; font-size: 13px;
+  color: #14141F; font-family: 'Inter', sans-serif;
+  transition: border-color 0.2s, box-shadow 0.2s; outline: none;
+}
+.form-input:focus { border-color: #6E5FDD; box-shadow: 0 0 0 3px rgba(110,95,221,0.12); }
+.form-input::placeholder { color: #B2B2BF; }
+textarea.form-input { resize: vertical; min-height: 110px; }
+
+/* ── contact.html: What Happens Next panel ── */
+.next-panel {
+  background: #6E5FDD; border-radius: 16px; padding: 40px;
+  position: relative; overflow: hidden; color: white;
+}
+.next-panel .deco {
+  position: absolute; border-radius: 50%;
+  background: rgba(255,255,255,0.05); pointer-events: none;
+}
+.next-badge {
+  width: 32px; height: 32px; min-width: 32px;
+  background: rgba(255,255,255,0.15); border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 14px; font-weight: 700; color: white;
+}
+.next-divider { border: none; border-top: 1px solid rgba(255,255,255,0.15); margin: 20px 0; }

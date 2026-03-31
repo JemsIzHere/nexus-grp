@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Training Programs – Nexus Group</title>
 
+  <link rel="icon" type="image/x-icon" href="assets/img/icon.ico">
+
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -36,98 +38,7 @@
     }
   </script>
 
-  <style>
-    *, *::before, *::after { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body { font-family: 'Inter', sans-serif; color: #14141F; }
-
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(24px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-    .anim-fade-up  { animation: fadeUp 0.65s ease both; }
-    .delay-1 { animation-delay: 0.10s; }
-    .delay-2 { animation-delay: 0.22s; }
-
-    .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.6s ease, transform 0.6s ease; }
-    .reveal.visible { opacity: 1; transform: none; }
-
-    /* Navbar */
-    .nav-link {
-      font-size: 14px; font-weight: 500; color: #14141F;
-      padding: 8px 18px; border-radius: 6px;
-      transition: background 0.2s, color 0.2s; white-space: nowrap;
-    }
-    .nav-link:hover { background: #F7F5FF; color: #6E5FDD; }
-    .nav-link.active { color: #6E5FDD; }
-
-    .dropdown { position: relative; }
-    .dropdown-menu {
-      display: none; position: absolute; top: calc(100% + 8px); left: 0;
-      background: #fff; border: 1px solid #E0DDF8; border-radius: 10px;
-      min-width: 200px; box-shadow: 0 8px 28px rgba(110,95,221,.13);
-      padding: 6px 0; z-index: 100;
-    }
-    .dropdown:hover .dropdown-menu,
-    .dropdown:focus-within .dropdown-menu { display: block; }
-    .dropdown-menu a {
-      display: block; padding: 9px 20px; font-size: 14px;
-      color: #14141F; transition: background 0.15s;
-    }
-    .dropdown-menu a:hover { background: #F7F5FF; color: #6E5FDD; }
-    .chevron-icon { font-size: 16px; vertical-align: -3px; transition: transform 0.2s; }
-    .dropdown:hover .chevron-icon { transform: rotate(180deg); }
-
-    /* Program cards */
-    .program-card {
-      background: #F9F8FF; border-radius: 12px; padding: 28px;
-      transition: box-shadow 0.25s, transform 0.25s;
-    }
-    .program-card:hover {
-      box-shadow: 0 12px 36px rgba(110,95,221,.13);
-      transform: translateY(-4px);
-    }
-    .icon-box {
-      width: 52px; height: 52px; background: #E0DDF8; border-radius: 8px;
-      display: flex; align-items: center; justify-content: center;
-      color: #6E5FDD; margin-bottom: 20px;
-    }
-    .icon-box .material-symbols-outlined { font-size: 22px; }
-
-    /* Pillar step numbers */
-    .step-number {
-      font-size: 28px; font-weight: 700;
-      color: rgba(110,95,221,0.35); line-height: 1; margin-bottom: 8px;
-    }
-
-    /* CTA circles */
-    .cta-circle {
-      position: absolute; border-radius: 50%;
-      background: rgba(255,255,255,0.05); pointer-events: none;
-    }
-
-    /* Footer */
-    .footer-link { font-size: 13px; color: #A6A1C7; transition: color 0.2s; }
-    .footer-link:hover { color: #E0DDF8; }
-
-    /* Mobile */
-    .hamburger { display: none; }
-    @media (max-width: 900px) {
-      .desktop-nav { display: none !important; }
-      .hamburger { display: flex; }
-      .mobile-menu {
-        display: none; flex-direction: column; gap: 4px;
-        padding: 12px 20px 16px; background: #fff;
-        border-top: 1px solid #E0DDF8;
-      }
-      .mobile-menu.open { display: flex; }
-      .mobile-nav-link {
-        padding: 10px 12px; border-radius: 8px;
-        font-size: 15px; font-weight: 500; color: #14141F; display: block;
-      }
-      .mobile-nav-link:hover { background: #F7F5FF; color: #6E5FDD; }
-    }
-  </style>
+  <link rel="stylesheet" href="css/style.css" />
 </head>
 
 <body class="bg-white font-inter">
@@ -419,30 +330,7 @@
 </footer>
 
 
-<script>
-  // Scroll reveal
-  const revealEls = document.querySelectorAll('.reveal');
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry, i) => {
-      if (entry.isIntersecting) {
-        entry.target.style.transitionDelay = `${(i % 4) * 0.1}s`;
-        entry.target.classList.add('visible');
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.12 });
-  revealEls.forEach(el => observer.observe(el));
-
-  // Mobile hamburger
-  document.getElementById('hamburger').addEventListener('click', () => {
-    document.getElementById('mobileMenu').classList.toggle('open');
-  });
-
-  // Sticky nav shadow
-  window.addEventListener('scroll', () => {
-    document.getElementById('mainHeader').classList.toggle('shadow-md', window.scrollY > 10);
-  });
-</script>
+<script src="js/script.js"></script>
 
 </body>
 </html>
