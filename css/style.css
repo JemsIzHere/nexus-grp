@@ -252,3 +252,19 @@ textarea.form-input { resize: vertical; min-height: 110px; }
   font-size: 14px; font-weight: 700; color: white;
 }
 .next-divider { border: none; border-top: 1px solid rgba(255,255,255,0.15); margin: 20px 0; }
+
+/* Hide menu on desktop */
+@media (min-width: 901px) {
+  #mobileMenu {
+    display: none;
+  }
+}
+
+/* Show when open on mobile */
+#mobileMenu {
+  display: none;
+}
+
+#mobileMenu.open {
+  display: block;
+}

@@ -14,10 +14,22 @@ revealEls.forEach(el => observer.observe(el));
 // ── Mobile hamburger ──
 const hamburger = document.getElementById('hamburger');
 const mobileMenu = document.getElementById('mobileMenu');
-if (hamburger && mobileMenu) {
-  hamburger.addEventListener('click', () => {
-    mobileMenu.classList.toggle('open');
-  });
+
+function mobileNav(){
+    if (hamburger && mobileMenu) {
+    hamburger.addEventListener('click', () => {
+        mobileMenu.classList.toggle('open');
+    });
+    }
+}
+
+
+function handleMenuVisibility() {
+  if (!mobileMenu) return;
+
+  if (window.innerWidth > 900) { // your breakpoint
+    mobileMenu.classList.remove('open'); // just close it
+  }
 }
 
 // ── Sticky nav shadow ──
@@ -41,3 +53,12 @@ function handleSubmit(e) {
     btn.textContent = 'Send Message →';
   }, 800);
 }
+
+// Run on page load
+handleMenuVisibility();
+
+// Run when resizing window
+window.addEventListener('load', handleMenuVisibility);
+window.addEventListener('resize', handleMenuVisibility);
+
+mobileNav();
